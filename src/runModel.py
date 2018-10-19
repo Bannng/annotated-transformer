@@ -13,7 +13,7 @@ TGT = data.Field(init_token=BOS_WORD, eos_token=EOS_WORD, pad_token=BLANK_WORD)
 
 MAX_LEN = 50
 
-train, val, test = data.TabularDataset.splits(path="./data/STC/", train="train/data.train.tsv", validation="validation/data.val.tsv", test="test/data.test.tsv",
+train, val, test = data.TabularDataset.splits(path="", train="train/data.train.tsv", validation="validation/data.val.tsv", test="test/data.test.tsv",
                                               format='tsv', fields=[('src', SRC), ('trg', TGT)],
                                               filter_pred=lambda x: len(vars(x)['src']) <= MAX_LEN and len(vars(x)['trg']) <= MAX_LEN)
 
